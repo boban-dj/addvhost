@@ -1,14 +1,5 @@
 # Script for adding vhhost to Apache on Archlinux.
 
-# TODO: 
-		# echo owner of generated files/folders, add as var (http:http)
-		# cleanup
-		# add sed function disable ($siteurl) of ($relative_doc_root)
-		# comment/disable vhost: sed -i '/Include conf\/vhosts\/$relative_doc_root/s/^/#/g' httpd.conf 
-		# uncomment:enable vhost: sed -i '/Include conf\/vhosts\/$relative_doc_root.conf/s/^#//g' httpd.conf
-		# remove all new vhost entries: hosts,vhosts,dir,httpd.conf,logs,restart
-		# add httpd -S output
-
 ## Usage
 
 call like this: `# ./addvhost.sh (# = root)`
@@ -33,3 +24,14 @@ or run like: `./addvhost -u newsite.com -d newsite`
 * makes vhost file in `/etc/httpd/conf/vhost` copied and populated `/etc/httpd/conf/vhosts/vhost.skeleton.conf`
 * makes directory in `/srv/http` for the new vhost site with index.html
 * restarts apache: `systemctl restart httpd`
+
+
+### TODO: 
+
+	# echo owner of generated files/folders, add as var (http:http)
+	# cleanup
+	# add sed function disable ($siteurl) of ($relative_doc_root)
+	# comment/disable vhost: sed -i '/Include conf\/vhosts\/$relative_doc_root/s/^/#/g' httpd.conf 
+	# uncomment:enable vhost: sed -i '/Include conf\/vhosts\/$relative_doc_root.conf/s/^#//g' httpd.conf
+	# remove all new vhost entries: hosts,vhosts,dir,httpd.conf,logs,restart
+	# add httpd -S output
