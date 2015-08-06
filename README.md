@@ -10,18 +10,19 @@ or run like: `./addvhost -u newsite.com -d newsite`
 
 ### Preparations:
 
-* Comment the default line for vhost in `/etc/httpd/conf/httpd.conf`: `#Include conf/extra/httpd-vhosts.conf` if you have no other vhosts setup.
+* Comment the default line for vhosts in `/etc/httpd/conf/httpd.conf`: `#Include conf/extra/httpd-vhosts.conf` 
+(if you have no other vhosts setup.)
 
 * make a vhosts directory in `/etc/httpd/conf/vhosts`
 
 * the script looks for a vhost skeleton file in `/etc/httpd/conf/vhosts` see `vhost.skeleton.conf`
 
 
-### The script edits the following:
+### The script does this:
 
 * adds line in `/etc/httpd/conf/httpd.conf` : `Include conf/vhosts/newsite.conf`
-* adds line in `/etc/hosts` : 127.0.0.1 newsite.com
-* makes vhost file in `/etc/httpd/conf/vhost` copied and populated `/etc/httpd/conf/vhosts/vhost.skeleton.conf`
+* adds line in `/etc/hosts` : `127.0.0.1 newsite.com`
+* makes vhost file in `/etc/httpd/conf/vhost` copied and populated from `/etc/httpd/conf/vhosts/vhost.skeleton.conf`
 * makes directory in `/srv/http` for the new vhost site with index.html
 * restarts apache: `systemctl restart httpd`
 
