@@ -1,6 +1,6 @@
-# Script for adding vhhost to Apache on Archlinux.
+## Script for adding vhhost to Apache on Archlinux.
 
-## Usage
+### Usage
 
 call like this: `# ./addvhost.sh (# = root)`
 
@@ -8,7 +8,7 @@ It will ask for `url` and `directory` for your new vhost.
 
 or run like: `./addvhost -u newsite.com -d newsite`
 
-## **Preparations:**
+### Preparations:
 
 * Comment the default line for vhost in `/etc/httpd/conf/httpd.conf`: `#Include conf/extra/httpd-vhosts.conf` if you have no other vhosts setup.
 
@@ -17,7 +17,7 @@ or run like: `./addvhost -u newsite.com -d newsite`
 * the script looks for a vhost skeleton file in `/etc/httpd/conf/vhosts` see `vhost.skeleton.conf`
 
 
-## **The script edits the following:** 
+### The script edits the following:
 
 * adds line in `/etc/httpd/conf/httpd.conf` : `Include conf/vhosts/newsite.conf`
 * adds line in `/etc/hosts` : 127.0.0.1 newsite.com
@@ -26,7 +26,7 @@ or run like: `./addvhost -u newsite.com -d newsite`
 * restarts apache: `systemctl restart httpd`
 
 
-### TODO: 
+#### TODO: 
 
 	# echo owner of generated files/folders, add as var (http:http)
 	# cleanup
